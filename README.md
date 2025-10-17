@@ -42,10 +42,6 @@ The focus is on:
 
 Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapters** for efficient training.
 
-### 🎯 Task Completion Visualization
-<img width="709" height="338" alt="task_completion" src="https://github.com/user-attachments/assets/19d93381-c216-43b6-abb9-8667ee40888e" />
----
-
 
 ### 📈 Training Curves
 <img width="963" height="800" alt="train" src="https://github.com/user-attachments/assets/a0f06fe2-5c9b-47eb-8435-4caf1eb83335" />
@@ -63,6 +59,11 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 - **OpenVLA** demonstrates stronger *transfer learning* and *semantic generalization* due to its larger VLM backbone.  
 - Camera rotation caused total performance collapse in OpenVLA → lack of rotation-invariant features.  
 - Action chunking reduced accuracy, highlighting the difficulty of multi-step prediction.
+
+---
+
+### 🎯 Task Completion Visualization
+<img width="709" height="338" alt="task_completion" src="https://github.com/user-attachments/assets/19d93381-c216-43b6-abb9-8667ee40888e" />
 
 ---
 
