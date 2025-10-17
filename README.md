@@ -44,7 +44,7 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 
 
 ### 📈 Training Curves
-<img width="963" height="800" alt="train" src="https://github.com/user-attachments/assets/a0f06fe2-5c9b-47eb-8435-4caf1eb83335" />
+<img width="707" height="586" alt="Screenshot from 2025-10-17 13-00-22" src="https://github.com/user-attachments/assets/d369db42-3cc3-4245-9174-4f30bca3b240" />
 
 ---
 
@@ -63,7 +63,7 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 ---
 
 ### 🎯 Task Completion Visualization
-<img width="709" height="338" alt="task_completion" src="https://github.com/user-attachments/assets/19d93381-c216-43b6-abb9-8667ee40888e" />
+<img width="710" height="340" alt="Screenshot from 2025-10-17 12-59-57" src="https://github.com/user-attachments/assets/8371d1ea-116e-483a-a44b-8a4601ca060c" />
 
 ---
 
@@ -76,7 +76,7 @@ To evaluate generalization to unseen environments, both pretrained models were t
 
 - After fine-tuning on **LIBERO-Spatial**, **OpenVLA** demonstrated *emergent semantic understanding*: it began moving toward target objects and sometimes grasped them correctly on unseen **LIBERO-Object** tasks where it achieved partial success without retraining.
 
-<img width="968" height="488" alt="object" src="https://github.com/user-attachments/assets/29695f1f-707b-48cb-884c-290de0fceafd" />
+<img width="712" height="366" alt="Screenshot from 2025-10-17 12-59-06" src="https://github.com/user-attachments/assets/4cdf4ae0-c635-44fe-8b3e-79355f9f7b41" />
 
 - **SmolVLA**, while faster and more efficient, lacked this emergent transfer behavior.  
   Its smaller 2 B backbone limited its ability to generalize to unseen object manipulation tasks.
@@ -99,7 +99,7 @@ These findings highlight that **large-scale VLAs** like OpenVLA retain richer vi
 SmolVLA achieves ~80% task success at **half the energy cost** and training time of OpenVLA.  
 Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA only ~7.7 h on an RTX 3060 12 GB.
 
-<img width="875" height="498" alt="energy" src="https://github.com/user-attachments/assets/78b83d00-045f-4862-951b-d9b856c7d677" />
+<img width="556" height="312" alt="Screenshot from 2025-10-17 13-01-26" src="https://github.com/user-attachments/assets/93fb79b5-59e0-4b45-b95f-4be356f4d7d1" />
 
 ---
 
