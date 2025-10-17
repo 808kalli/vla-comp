@@ -21,13 +21,13 @@ The focus is on:
 ### Simulation Environment
 - **Benchmark:** LIBERO-Spatial (10 spatial reasoning tasks)
 - **Robot:** Franka Emika Panda, 7-DoF arm  
-- **Dataset:** 434 expert demonstrations (RLDS format via HuggingFace)  
+- **Dataset:** 434 expert demonstrations (RLDS format via HuggingFace)
 
 ### Models Evaluated
-| Model | Parameters | Backbone | Vision Encoder | Quantization | Notes |
-|:------|:------------|:----------|:----------------|:--------------|:------|
-| **OpenVLA** | 7B | LLaMA-2 | DINOv2 + SigLIP | 8-bit | Requires large GPU (A100 / 3060 12GB for inference) |
-| **SmolVLA** | 2B | Phi-3 | SigLIP | 16-bit | Compact and efficient, trainable on single GPU |
+| Model | Parameters | Backbone | Vision Encoder |
+|:------|:------------|:----------|:----------------|
+| **OpenVLA** | 7B | LLaMA-2 | DINOv2 + SigLIP |
+| **SmolVLA** | 2B | Phi-3 | SigLIP |
 
 ---
 
@@ -42,14 +42,21 @@ The focus is on:
 
 Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapters** for efficient training.
 
+### 🎯 Task Completion Visualization
+<p align="center">
+  <img src="figures/task_completion.png" alt="Task completion visualization" width="700"/>
+</p>
+
+*Figure 1: Example rollout from the LIBERO-Spatial benchmark — the robot successfully grasps and places the black bowl according to the language instruction.*
+
 ---
 
 ## 📊 Results Summary
 
-| Model | Zero-Shot | 10 Ep | 100 Ep | Full | Scratch | Avg. Success (%) |
-|:------|:-----------|:------|:--------|:------|:----------|:----------------:|
-| **OpenVLA** | 0.0 | 1.0 | 31.0 | 71.0 | – | – |
-| **SmolVLA** | 0.0 | 9.4 | 59.6 | 79.4 | 82.6 | **⬆ Best Overall** |
+| Model | Zero-Shot | 10 Ep | 100 Ep | Full | Scratch |
+|:------|:-----------|:------|:--------|:------|:----------|
+| **OpenVLA** | 0.0 | 1.0 | 31.0 | 71.0 | – |
+| **SmolVLA** | 0.0 | 9.4 | 59.6 | 79.4 | 82.6 |
 
 - **SmolVLA** shows superior *sample efficiency* and *energy efficiency*, making it ideal for real-time deployment.  
 - **OpenVLA** demonstrates stronger *transfer learning* and *semantic generalization* due to its larger VLM backbone.  
@@ -58,10 +65,26 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 
 ---
 
+### 📈 Training Curves
+
+<p align="center">
+  <img src="figures/train.png" alt="Training curves for OpenVLA and SmolVLA" width="700"/>
+</p>
+
+*Figure 2: Training loss and action accuracy curves for OpenVLA (top) and SmolVLA (bottom) under various fine-tuning regimes.*
+
+---
+
 ## ⚡ Energy–Performance Trade-Offs
 
 SmolVLA achieves ~80% task success at **half the energy cost** and training time of OpenVLA.  
 Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA only ~7.7 h on an RTX 3060 12 GB.
+
+<p align="center">
+  <img src="figures/energy.png" alt="Energy-performance tradeoff" width="700"/>
+</p>
+
+*Figure 3: Energy-performance scatter plot for SmolVLA fine-tuning regimes. The full fine-tuning configuration achieves the optimal efficiency/performance balance.*
 
 ---
 
@@ -73,3 +96,4 @@ Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA o
 - Fine-tuning on spatial benchmarks improves emergent reasoning across unseen manipulation tasks.
 
 ---
+
