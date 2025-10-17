@@ -1,0 +1,49 @@
+# === LARGE DIRECTORIES (datasets, models, logs) ===
+data/
+raw_datasets/
+models/
+logs/
+rollouts/
+
+# === Python + Runtime Artifacts ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+*.tmp
+*.bak
+
+# === Environment / Build Files ===
+.env
+*.yaml
+*.yml
+.DS_Store
+.vscode/
+.idea/
+*.ipynb_checkpoints/
+
+# === Checkpoints, WandB, etc. ===
+wandb/
+checkpoints/
+outputs/
+experiments/
+
+# === Video, media ===
+*.mp4
+*.gif
+*.webp
+*.png
+*.jpg
+*.jpeg
+
+# === Temporary or test output ===
+tmp/
+test_output/
+
+src/lerobot/tests/artifacts/
+*.safetensors
+*.bag
