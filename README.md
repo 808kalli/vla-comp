@@ -44,8 +44,11 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 
 ### 🎯 Task Completion Visualization
 <img width="709" height="338" alt="task_completion" src="https://github.com/user-attachments/assets/19d93381-c216-43b6-abb9-8667ee40888e" />
+---
 
-*Figure 1: Example rollout from the LIBERO-Spatial benchmark — the robot successfully grasps and places the black bowl according to the language instruction.*
+
+### 📈 Training Curves
+<img width="963" height="800" alt="train" src="https://github.com/user-attachments/assets/a0f06fe2-5c9b-47eb-8435-4caf1eb83335" />
 
 ---
 
@@ -63,10 +66,30 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 
 ---
 
-### 📈 Training Curves
-<img width="963" height="800" alt="train" src="https://github.com/user-attachments/assets/a0f06fe2-5c9b-47eb-8435-4caf1eb83335" />
+### 🔍 Zero-Shot Generalization
 
-*Figure 2: Training loss and action accuracy curves for OpenVLA (top) and SmolVLA (bottom) under various fine-tuning regimes.*
+To evaluate generalization to unseen environments, both pretrained models were tested directly on **LIBERO-Spatial** and **LIBERO-Object** without any fine-tuning.
+
+- In **pure zero-shot**, both models failed to complete tasks successfully due to the real-to-sim gap and differing camera configurations.  
+  Their motion patterns appeared random, indicating no spatial understanding of the new environment.
+
+- After fine-tuning on **LIBERO-Spatial**, **OpenVLA** demonstrated *emergent semantic understanding*: it began moving toward target objects and sometimes grasped them correctly on unseen **LIBERO-Object** tasks where it achieved partial success without retraining.
+
+<img width="968" height="488" alt="object" src="https://github.com/user-attachments/assets/29695f1f-707b-48cb-884c-290de0fceafd" />
+
+- **SmolVLA**, while faster and more efficient, lacked this emergent transfer behavior.  
+  Its smaller 2 B backbone limited its ability to generalize to unseen object manipulation tasks.
+
+- With only 10 episodes of fine-tuning in the **LIBERO-Object** benchmark (1 episode per task) we see that OpenVLA learns the new task much more effectively, utilizing its *emergent semantic understanding* capabilities.
+
+| Model | Fine-tuning | Success Rate (%) on LIBERO-Object |
+|:------|:-------------|:---------------------------------:|
+| **OpenVLA** | Zero-shot | 0.0 |
+| | + 10 Episodes | 5.5 |
+| **SmolVLA** | Zero-shot | 0.0 |
+| | + 10 Episodes | 0.0 |
+
+These findings highlight that **large-scale VLAs** like OpenVLA retain richer visual-semantic priors, while **smaller VLAs** like SmolVLA require additional examples to transfer knowledge across tasks and embodiments.
 
 ---
 
@@ -75,9 +98,6 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 SmolVLA achieves ~80% task success at **half the energy cost** and training time of OpenVLA.  
 Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA only ~7.7 h on an RTX 3060 12 GB.
 <img width="875" height="498" alt="energy" src="https://github.com/user-attachments/assets/78b83d00-045f-4862-951b-d9b856c7d677" />
-
-*Figure 3: Energy-performance scatter plot for SmolVLA fine-tuning regimes. The full fine-tuning configuration achieves the optimal efficiency/performance balance.*
-
 ---
 
 ## 🧩 Key Findings
