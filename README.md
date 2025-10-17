@@ -97,7 +97,9 @@ These findings highlight that **large-scale VLAs** like OpenVLA retain richer vi
 
 SmolVLA achieves ~80% task success at **half the energy cost** and training time of OpenVLA.  
 Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA only ~7.7 h on an RTX 3060 12 GB.
+
 <img width="875" height="498" alt="energy" src="https://github.com/user-attachments/assets/78b83d00-045f-4862-951b-d9b856c7d677" />
+
 ---
 
 ## 🧩 Key Findings
