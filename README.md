@@ -43,9 +43,7 @@ The focus is on:
 Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapters** for efficient training.
 
 ### 🎯 Task Completion Visualization
-<p align="center">
-  <img src="figures/task_completion.png" alt="Task completion visualization" width="700"/>
-</p>
+<img width="709" height="338" alt="task_completion" src="https://github.com/user-attachments/assets/19d93381-c216-43b6-abb9-8667ee40888e" />
 
 *Figure 1: Example rollout from the LIBERO-Spatial benchmark — the robot successfully grasps and places the black bowl according to the language instruction.*
 
@@ -66,10 +64,7 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 ---
 
 ### 📈 Training Curves
-
-<p align="center">
-  <img src="figures/train.png" alt="Training curves for OpenVLA and SmolVLA" width="700"/>
-</p>
+<img width="963" height="800" alt="train" src="https://github.com/user-attachments/assets/a0f06fe2-5c9b-47eb-8435-4caf1eb83335" />
 
 *Figure 2: Training loss and action accuracy curves for OpenVLA (top) and SmolVLA (bottom) under various fine-tuning regimes.*
 
@@ -79,10 +74,7 @@ Both models were fine-tuned in simulated LIBERO environments, with **LoRA adapte
 
 SmolVLA achieves ~80% task success at **half the energy cost** and training time of OpenVLA.  
 Training OpenVLA for full fine-tuning required ~14.5 h on an A100 GPU; SmolVLA only ~7.7 h on an RTX 3060 12 GB.
-
-<p align="center">
-  <img src="figures/energy.png" alt="Energy-performance tradeoff" width="700"/>
-</p>
+<img width="875" height="498" alt="energy" src="https://github.com/user-attachments/assets/78b83d00-045f-4862-951b-d9b856c7d677" />
 
 *Figure 3: Energy-performance scatter plot for SmolVLA fine-tuning regimes. The full fine-tuning configuration achieves the optimal efficiency/performance balance.*
 
